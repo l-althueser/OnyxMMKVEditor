@@ -10,16 +10,16 @@ This application is intended for advanced users who understand the risks of modi
 - Tap a key (app config) to view and edit its value
 - Offer to copy or edit the value as text (some values are JSON, but MMKV storage treats them as strings without structure)
 - Buildin backup and restore functionality for each key/value that was once edited with this app. You can always load the first overwritten config in the editor window and save (restore backup) if you want. However, better to keep a manual backup!
-- Some keys (app configs) offer to add the handwriting optimization automatically, currently supported:
+- Some keys (app configs) offer to add the handwriting optimization automatically, **currently supported for automatic optimization are**:
   - Obsidian (Ink, Excalidraw): `eac_app_md.obsidian` for view key `com.getcapacitor.CapacitorWebView`
   - DrawboardPDF: `eac_app_com.drawboard.pdf` for view key `com.getcapacitor.CapacitorWebView`
-  - DrawNote: ` ` for view key `com.dragonnest.app.view.DrawingContainerView`
-  - Ibis Paint: ` ` for view key `jp.ne.ibis.ibispaintx.app.glwtk.IbisPaintView`
-  - Joplin 'Drawing' plugin: ` ` for view key `com.reactnativecommunity.webview.RNCWebView`
-  - MediBang Paint: ` ` for view key `com.medibang.android.paint.tablet.ui.widget.CanvasView`
-  - Penly: ` ` for view key `com.penly.penly.editor.views.EditorView`
-  - Squid: ` ` for view key `com.steadfastinnovation.android.projectpapyrus.ui.widget.PageViewContainer`
-  - Xodo: ` ` for view key `com.pdftron.pdf.PDFViewCtrl`
+  - DrawNote: `eac_app_com.dragonnest.drawnote` for view key `com.dragonnest.app.view.DrawingContainerView`
+  - Ibis Paint: `eac_app_jp.ne.ibis.ibispaintx.app` for view key `jp.ne.ibis.ibispaintx.app.glwtk.IbisPaintView`
+  - Joplin 'Drawing' plugin: `eac_app_net.cozic.joplin` for view key `com.reactnativecommunity.webview.RNCWebView`
+  - MediBang Paint: `eac_app_com.medibang.android.paint.tablet` for view key `com.medibang.android.paint.tablet.ui.widget.CanvasView`
+  - Penly: `eac_app_com.penly.penly` for view key `com.penly.penly.editor.views.EditorView`
+  - Squid: `com.steadfastinnovation.android.projectpapyrus` for view key `com.steadfastinnovation.android.projectpapyrus.ui.widget.PageViewContainer`
+  - Xodo: `eac_app_com.xodo.pdf.reader` for view key `com.pdftron.pdf.PDFViewCtrl`
 
 ## Resetting to default values
 If you want to reset the config of an app to default values, you can either:

@@ -1,4 +1,4 @@
-# Onyx (BOOX) MMKV Editor (Boox)
+# Onyx (BOOX) MMKV Editor
 
 Minimal Android app to view and edit an MMKV store at `/onyxconfig/mmkv/onyx_config` on Boox devices. The MMKV store was added around Onyx Firmware version 4.0 and replaces the previous plain text storage in `/onyxconfig/eac_config`. The main advantage of the MMKV store in the current Firmware versions is that no ROOT access is required to read and write it, as long as this application is granted all-files access on Android 11+ (all recent Boox devices).
 
@@ -20,6 +20,11 @@ This application is intended for advanced users who understand the risks of modi
   - Penly: ` ` for view key `com.penly.penly.editor.views.EditorView`
   - Squid: ` ` for view key `com.steadfastinnovation.android.projectpapyrus.ui.widget.PageViewContainer`
   - Xodo: ` ` for view key `com.pdftron.pdf.PDFViewCtrl`
+
+## Resetting to default values
+If you want to reset the config of an app to default values, you can either:
+  - Restore the backup of the app config if you have edited it before with this app
+  - Copy the `eac_default_app_config` value and paste it as the value of the app config you want to reset
 
 ## Details about handwriting optimization
 The handwriting optimization is a special configuration that can be added to the MMKV store for certain apps to improve the handwriting experience on Boox devices. It works by enabling specific settings that optimize the performance and responsiveness of handwriting input within those apps - mainly by adding an overlay that sends the input gradualy to the underlaying app.
@@ -108,6 +113,3 @@ Reboot the device. Now, when you open the app, the 'handwriting' tab should appe
 2. Open this folder in Android Studio (`Open an existing project`).
 3. Let Android Studio download Gradle and dependencies.
 4. Build and run on your Boox device (enable developer mode + USB debugging).
-
-## Permissions & notes
-- If the app can't read `/onyxconfig/mmkv`, grant all-files access using the settings screen the app opens.

@@ -1,0 +1,38 @@
+# Built application files
+/build/
+/app/build/
+
+# Gradle files
+/.gradle/
+/.idea/
+**/local.properties
+/*.iml
+
+# Signing keys
+*.jks
+*.keystore
+*.p12
+
+# IntelliJ
+.idea/
+.idea/*
+!/.idea/gradle.xml
+!/.idea/libraries
+
+# Kotlin/Java
+*.class
+*.log
+
+# Native
+.cxx/
+externalNativeBuild/
+
+# Gradle wrapper
+/gradle/wrapper/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+captures/

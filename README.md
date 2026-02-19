@@ -12,6 +12,7 @@ This application is intended for advanced users who understand the risks of modi
 - Buildin backup and restore functionality for each key/value that was once edited with this app. You can always load the first overwritten config in the editor window and save (restore backup) if you want. However, better to keep a manual backup!
 - Some keys (app configs) offer to add the handwriting optimization automatically, currently supported:
   - Obsidian (Ink, Excalidraw): `eac_app_md.obsidian` for view key `com.getcapacitor.CapacitorWebView`
+  - DrawboardPDF: `eac_app_com.drawboard.pdf` for view key `com.getcapacitor.CapacitorWebView`
   - DrawNote: ` ` for view key `com.dragonnest.app.view.DrawingContainerView`
   - Ibis Paint: ` ` for view key `jp.ne.ibis.ibispaintx.app.glwtk.IbisPaintView`
   - Joplin 'Drawing' plugin: ` ` for view key `com.reactnativecommunity.webview.RNCWebView`
@@ -95,6 +96,8 @@ Reboot the device. Now, when you open the app, the 'handwriting' tab should appe
 ## Finding the view key of an app
 
 1. Pull the app's APK from the device (see e.g. https://stackoverflow.com/questions/4032960/how-do-i-get-an-apk-file-from-an-android-device).
+  - `adb shell pm path com.app`
+  - `adb pull /data/app/.../base.apk ./app.apk`
 2. Open the APK in Android Studio via File → Profile or Debug APK.
 3. Inspect the XML layout files under res/layout and look for view class names that appear related to drawing or canvas functionality (custom view classes or view ids that mention “draw”, “canvas”, “pen”, etc.).
 4. Add a candidate view name as the `drawViewKey` in the MMKV entry (`eac_config`), reboot the device, and test the app. If it does not enable handwriting, repeat with the next promising class name until the correct view key is found.

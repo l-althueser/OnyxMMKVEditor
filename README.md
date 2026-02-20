@@ -2,6 +2,10 @@
 
 Minimal Android app to view and edit an MMKV store at `/onyxconfig/mmkv/onyx_config` on Boox devices. The MMKV store was added around Onyx Firmware version 4.0 and replaces the previous plain text storage in `/onyxconfig/eac_config`. The main advantage of the MMKV store in the current Firmware versions is that no ROOT access is required to read and write it, as long as this application is granted all-files access on Android 11+ (all recent Boox devices).
 
+TL;DR: This app allows you to edit app configurations on your Boox device, including enabling handwriting optimization for supported apps. You can enjoy low latency handwriting input in your favorite app!
+
+Download the APK from: https://github.com/l-althueser/OnyxMMKVEditor/releases
+
 ## WARNING
 This application is intended for advanced users who understand the risks of modifying app configurations. Changing values without proper knowledge may lead to unexpected behavior or even render apps unusable. Always make sure to back up your data before making any changes.
 
@@ -21,6 +25,20 @@ This application is intended for advanced users who understand the risks of modi
   - Squid: `com.steadfastinnovation.android.projectpapyrus` for view key `com.steadfastinnovation.android.projectpapyrus.ui.widget.PageViewContainer`
   - Xodo: `eac_app_com.xodo.pdf.reader` for view key `com.pdftron.pdf.PDFViewCtrl`
   - Zotero: `eac_app_org.zotero.android` for view key `com.pspdfkit.internal.views.page.PageLayout` (seems to work only partially and no good)
+
+## App screenshots
+
+Main screen and editor for app configurations:
+<p align="center">
+   <img alt="Screenshot" width="250" src="resources/v03_main.png">
+   <img alt="Screenshot" width="250" src="resources/v03_edit.png">
+</p>
+Handwriting optimization enabled in Obsidian (Ink plugin):
+<p align="center">
+   <img alt="Screenshot" width="250" src="resources/v03_obsidian_handwriting.png">
+   <img alt="Screenshot" width="250" src="resources/v03_obsidian_optimization.png">
+</p>
+
 
 ## Resetting to default values
 If you want to reset the config of an app to default values, you can either:

@@ -17,6 +17,7 @@ object HandwritingAppKeys {
         "eac_app_net.cozic.joplin" to "com.reactnativecommunity.webview.RNCWebView",
         "eac_app_com.steadfastinnovation.android.projectpapyrus" to "com.steadfastinnovation.android.projectpapyrus.ui.widget.PageViewContainer",
         "eac_app_com.medibang.android.paint.tablet" to "com.medibang.android.paint.tablet.ui.widget.CanvasView",
+        "eac_app_org.zotero.android" to "com.pspdfkit.internal.views.page.PageLayout"
     )
 
     /**

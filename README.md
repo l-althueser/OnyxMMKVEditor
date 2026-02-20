@@ -20,6 +20,7 @@ This application is intended for advanced users who understand the risks of modi
   - Penly: `eac_app_com.penly.penly` for view key `com.penly.penly.editor.views.EditorView`
   - Squid: `com.steadfastinnovation.android.projectpapyrus` for view key `com.steadfastinnovation.android.projectpapyrus.ui.widget.PageViewContainer`
   - Xodo: `eac_app_com.xodo.pdf.reader` for view key `com.pdftron.pdf.PDFViewCtrl`
+  - Zotero: `eac_app_org.zotero.android` for view key `com.pspdfkit.internal.views.page.PageLayout` (seems to work only partially and no good)
 
 ## Resetting to default values
 If you want to reset the config of an app to default values, you can either:

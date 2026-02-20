@@ -1,6 +1,8 @@
 # Built application files
 /build/
 /app/build/
+/app/release
+/app/keystore*
 
 # Gradle files
 /.gradle/
@@ -12,6 +14,7 @@
 *.jks
 *.keystore
 *.p12
+**/keystore.properties
 
 # IntelliJ
 .idea/

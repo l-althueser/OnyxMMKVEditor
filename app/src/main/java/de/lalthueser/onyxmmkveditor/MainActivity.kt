@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private val mmkvService: MMKVAccessLocal by lazy { MMKVAccessLocal(this) }
     private var currentHandle: String? = null
     private var allItems: List<Pair<String, String>> = emptyList()
+    private var lastErrorMessage: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,25 +65,31 @@ class MainActivity : AppCompatActivity() {
         try {
             val handle = mmkvService.openSystem()
             if (handle == null) {
-                Toast.makeText(this, "MMKV directory not found: ${MMKVAccessLocal.SYSTEM_PATH}\nEnsure the path exists and the app has the required permissions.", Toast.LENGTH_LONG).show()
+                lastErrorMessage = "MMKV directory not found: ${MMKVAccessLocal.SYSTEM_PATH}\nEnsure the path exists and the app has the required permissions."
             } else {
                 currentHandle = handle
             }
         } catch (e: Exception) {
-            Toast.makeText(this, "MMKV initialization error: ${e.message}", Toast.LENGTH_LONG).show()
+            lastErrorMessage = "MMKV initialization error: ${e.message}"
         }
 
         loadAll()
     }
 
     private fun loadAll() {
+        if (lastErrorMessage != null) {
+            allItems = emptyList()
+            adapter.showError(lastErrorMessage!!)
+            return
+        }
+
         val kvList = mutableListOf<Pair<String, String>>()
         try {
             val handle = currentHandle
             if (handle == null) {
-                Toast.makeText(this, "Cannot access MMKV system store", Toast.LENGTH_LONG).show()
+                lastErrorMessage = "Cannot access MMKV system store"
                 allItems = emptyList()
-                adapter.update(allItems)
+                adapter.showError(lastErrorMessage!!)
                 return
             }
             val keys = mmkvService.allKeys(handle)
@@ -91,13 +98,18 @@ class MainActivity : AppCompatActivity() {
                 kvList.add(k to v)
             }
         } catch (e: Exception) {
-            Toast.makeText(this, "Error reading MMKV: ${e.message}", Toast.LENGTH_LONG).show()
+            lastErrorMessage = "Error reading MMKV: ${e.message}"
+            allItems = emptyList()
+            adapter.showError(lastErrorMessage!!)
+            return
         }
         allItems = kvList
         applyFilter()
     }
 
     private fun applyFilter() {
+        if (lastErrorMessage != null) return
+
         val query = findViewById<EditText>(R.id.etFilter).text.toString()
         val showAll = findViewById<SwitchMaterial>(R.id.swShowAll).isChecked
 
